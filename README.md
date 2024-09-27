@@ -26,4 +26,13 @@ There are several popular programs for running Large Language Models (LLMs) loca
 
 These programs offer various features and capabilities for running LLMs locally. Some are more user-friendly with graphical interfaces, while others are command-line tools that offer more flexibility for advanced users.
 
-Would you like more information about any of these specific programs or their features?
+
+
+### General Memory Requirements for LLMs
+
+For many LLMs, a rough estimate is that you need at least 2-3 times the size of the model in RAM to run it effectively. For an 8B model, this could mean needing anywhere from 16 GB to 24 GB of RAM, depending on the specific implementation and workload.
+
+
+
+
+
