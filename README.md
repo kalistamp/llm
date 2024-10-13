@@ -1,4 +1,9 @@
-# llm
+# ITS LLMs not LLM
+
+
+**RED PROMPTS**
+
+https://github.com/declare-lab/red-instruct/tree/main
 
 
 ### General Memory Requirements for LLMs
