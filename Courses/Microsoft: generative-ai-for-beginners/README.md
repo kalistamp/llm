@@ -23,4 +23,25 @@ Below is a visual example of how this might look
 ***
 
 
+# Exploring and comparing different LLMs
+
+### Foundation Models versus LLMs
+
+The term Foundation Model was [coined by Stanford researchers](https://arxiv.org/abs/2108.07258?WT.mc_id=academic-105485-koreyst) and defined as an AI model that follows some criteria, such as:
+
+- **They are trained using unsupervised learning or self-supervised learning**, meaning they are trained on unlabeled multi-modal data, and they do not require human annotation or labeling of data for their training process.
+- **They are very large models**, based on very deep neural networks trained on billions of parameters.
+- **They are normally intended to serve as a ‘foundation’ for other models**, meaning they can be used as a starting point for other models to be built on top of, which can be done by fine-tuning.
+
+
+To further clarify this distinction, let’s take ChatGPT as an example. To build the first version of ChatGPT, a model called GPT-3.5 served as the foundation model. This means that OpenAI used some chat-specific data to create a tuned version of GPT-3.5 that was specialized in performing well in conversational scenarios, such as chatbots.
+
+![Multimodel](https://github.com/kalistamp/llm/raw/main/Courses/Microsoft%3A%20generative-ai-for-beginners/images/Multimodal.png)
+
+
+***
+***
+***
+
 # NEXT
+
