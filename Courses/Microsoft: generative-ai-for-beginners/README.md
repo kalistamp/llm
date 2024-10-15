@@ -25,6 +25,8 @@ Below is a visual example of how this might look
 
 # Exploring and comparing different LLMs
 
+```Models are just the Neural Network, with the parameters, weights, and others. Allowing companies to run locally, however, would need to buy equipment, build structure to scale and buy a license or use an open-source model. A model like LLaMA is available to be used, requiring computational power to run the model.```
+
 ### Foundation Models versus LLMs
 
 The term Foundation Model was [coined by Stanford researchers](https://arxiv.org/abs/2108.07258?WT.mc_id=academic-105485-koreyst) and defined as an AI model that follows some criteria, such as:
