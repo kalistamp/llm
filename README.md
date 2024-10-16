@@ -1,3 +1,6 @@
+
+ADD FOLDER FOR GPT REPO: https://github.com/kalistamp/GPT
+
 # ITS LLMs not LLM
 
 
