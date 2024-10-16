@@ -1,3 +1,6 @@
 [submodule "Awesome Prompts Repo"]
 	path = Awesome Prompts Repo
 	url = https://github.com/f/awesome-chatgpt-prompts
+[submodule "kalistamp_GPT"]
+	path = kalistamp_GPT
+	url = https://github.com/kalistamp/GPT
