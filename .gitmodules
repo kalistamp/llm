@@ -4,3 +4,6 @@
 [submodule "kalistamp_GPT"]
 	path = kalistamp_GPT
 	url = https://github.com/kalistamp/GPT
+[submodule "BlackFriday_gpt_prompts"]
+	path = BlackFriday_gpt_prompts
+	url = https://github.com/friuns2/BlackFriday-GPTs-Prompts
