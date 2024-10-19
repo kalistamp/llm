@@ -23,3 +23,6 @@
 [submodule "BlackFriday-GPTs-Prompts"]
 	path = BlackFriday-GPTs-Prompts
 	url = https://github.com/friuns2/BlackFriday-GPTs-Prompts
+[submodule "L1B3RT45"]
+	path = L1B3RT45
+	url = https://github.com/elder-plinius/L1B3RT45/
