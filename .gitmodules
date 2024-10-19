@@ -16,3 +16,6 @@
 [submodule "L1B3RT45"]
 	path = L1B3RT45
 	url = https://github.com/elder-plinius/L1B3RT45/
+[submodule "red-instruct"]
+	path = red-instruct
+	url = https://github.com/declare-lab/red-instruct/
