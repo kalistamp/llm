@@ -6,7 +6,11 @@ ADD FOLDER FOR GPT REPO: https://github.com/kalistamp/GPT
 
 **RED PROMPTS**
 
-https://github.com/declare-lab/red-instruct/tree/main
+```This guy jailbreaks alot:```
+
+https://github.com/elder-plinius
+
+https://huggingface.co/collections/failspy/abliterated-v3-664a8ad0db255eefa7d0012b
 
 
 ### General Memory Requirements for LLMs
