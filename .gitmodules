@@ -17,3 +17,6 @@
 # https://github.com/elder-plinius/L1B3RT45/tree/main
 
 # https://huggingface.co/collections/failspy/abliterated-v3-664a8ad0db255eefa7d0012b
+[submodule "GPT"]
+	path = GPT
+	url = https://github.com/kalistamp/GPT
