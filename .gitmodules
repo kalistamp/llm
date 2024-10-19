@@ -19,3 +19,6 @@
 [submodule "red-instruct"]
 	path = red-instruct
 	url = https://github.com/declare-lab/red-instruct/
+[submodule "ai-privacy-guide"]
+	path = ai-privacy-guide
+	url = https://github.com/iAnonymous3000/ai-privacy-guide
