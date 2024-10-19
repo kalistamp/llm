@@ -1,7 +1,14 @@
 
-ADD FOLDER FOR GPT REPO: https://github.com/kalistamp/GPT
 
-# ITS LLMs not LLM
+**Multiple Models in one place:**
+
+* https://chat.webllm.ai/
+* https://lmarena.ai/
+* https://venice.ai/
+* https://huggingface.co/chat/
+
+***
+***
 
 
 **RED PROMPTS**
