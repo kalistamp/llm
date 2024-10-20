@@ -22,3 +22,6 @@
 [submodule "ai-privacy-guide"]
 	path = ai-privacy-guide
 	url = https://github.com/iAnonymous3000/ai-privacy-guide
+[submodule "openai-cookbook"]
+	path = openai-cookbook
+	url = https://github.com/openai/openai-cookbook
