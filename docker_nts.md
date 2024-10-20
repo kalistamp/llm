@@ -22,7 +22,7 @@ docker run -it ubuntu
 Once inside ubuntu i realized the git command could not be installed because the os had to first be updated ```apt update -y``` | Then git could be installed w/ ```apt install git -y```
 
 
-```How would i start and attatch to a docker container i already have created and worked in before?```
+How would i start and attatch to a docker container i already have created and worked in before? 
 
 If the container is stopped, first start it with 
 
