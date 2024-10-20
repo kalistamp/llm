@@ -13,7 +13,7 @@ List all docker containers -a [option]
 docker ps -a
 ```
 
-* Starting docker and creating a new conatiner with a specific "image" (operating system version) that you choose in the command (new docker container name and hash will be generated from command):
+Starting docker and creating a new conatiner with a specific "image" (operating system version) that you choose in the command (new docker container name and hash will be generated from command):
 
 ```
 docker run -it ubuntu
@@ -22,7 +22,7 @@ docker run -it ubuntu
 Once inside ubuntu i realized the git command could not be installed because the os had to first be updated ```apt update -y``` | Then git could be installed w/ ```apt install git -y```
 
 
-* How would i start and attatch to a docker container i already have created and worked in before:
+```How would i start and attatch to a docker container i already have created and worked in before?```
 
 If the container is stopped, first start it with 
 
@@ -42,7 +42,7 @@ If the container is running, and want to stop it with
 docker stop <container_name_or_id>
 ```
 
-* Bonus Commands found
+[!] Bonus Commands found
 
 List all Docker images installed 
 
