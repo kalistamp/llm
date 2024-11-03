@@ -10,6 +10,16 @@
 ***
 ***
 
+**Text to Image Sources:**
+
+* https://lexica.art/
+* https://civitai.com/
+* https://klingai.com/
+
+
+***
+***
+
 
 **RED PROMPTS**
 
