@@ -16,6 +16,7 @@
 * https://civitai.com/
 * https://klingai.com/
 * https://fal.ai/
+* https://deepdreamgenerator.com/
 
 
 ***
