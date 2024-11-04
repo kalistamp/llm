@@ -15,6 +15,7 @@
 * https://lexica.art/
 * https://civitai.com/
 * https://klingai.com/
+* https://fal.ai/
 
 
 ***
