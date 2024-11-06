@@ -31,6 +31,10 @@ https://github.com/elder-plinius
 
 https://huggingface.co/collections/failspy/abliterated-v3-664a8ad0db255eefa7d0012b
 
+```0Din’s GenAI Bug Bounty Program```
+
+https://0din.ai/about
+
 
 ### General Memory Requirements for LLMs
 
