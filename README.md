@@ -18,6 +18,7 @@
 * https://fal.ai/
 * https://deepdreamgenerator.com/
 * https://www.krea.ai/ | ```jnk@kalistamp.ink``` ```Fuckthisai```
+* https://openart.ai/
 
 
 ***
