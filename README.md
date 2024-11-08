@@ -20,6 +20,9 @@
 * https://www.krea.ai/ | ```jnk@kalistamp.ink``` ```Fuckthisai```
 * https://openart.ai/
 * https://tensor.art/
+* https://www.deviantart.com
+* https://www.artstation.com/?sort_by=community&dimension=all
+
 
 
 ***
