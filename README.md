@@ -12,6 +12,13 @@
 
 **Text to Image Sources:**
 
+[!] HF Spaces are free
+
+* Schnell - https://huggingface.co/spaces/black-forest-labs/FLUX.1-schnell
+* Dev - https://huggingface.co/spaces/black-forest-labs/FLUX.1-dev
+
+
+
 * https://lexica.art/
 * https://civitai.com/
 * https://klingai.com/
@@ -22,6 +29,8 @@
 * https://www.deviantart.com
 * https://www.artstation.com/?sort_by=community&dimension=all
 * https://fluxpro.art/
+
+
 
 - https://seaartai.com - Free Flux (Speed-Enhanced) generations with daily credits (Stamina), Text-to-image & Image-to-image, Fun transformations like turning your pfp into a zombie!
 - https://nightcafe.studio - Flux Dev: 5 free generations, then 3 credits/image, Flux Schnell: 1 credit, Use NC presets with Flux for amazing results!
