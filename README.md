@@ -22,7 +22,15 @@
 * https://tensor.art/
 * https://www.deviantart.com
 * https://www.artstation.com/?sort_by=community&dimension=all
-* https://www.mage.space/
+
+- https://seaartai.com - Free Flux (Speed-Enhanced) generations with daily credits (Stamina), Text-to-image & Image-to-image, Fun transformations like turning your pfp into a zombie!
+- https://nightcafe.studio - Flux Dev: 5 free generations, then 3 credits/image, Flux Schnell: 1 credit, Use NC presets with Flux for amazing results!
+- https://fluxpro.ai - Unlimited Flux Schnell use, Flux Dev: 2 credits, Flux Pro: 4 credits, Beautiful results with Schnell!
+- https://easy-peasy.ai - Flux.1 (likely Flux Dev), 2 credits per image, HD option available for stunning results
+- https://mage.space - Free Flux generation, Inpainting and enhance features, No sign-up required, General Fast v2 Flux: Free, General Fast v2 HD Flux (pro)
+- https://fal.ai - Using Schnell: $1 for 40 runs, Free generations so far, Excellent text handling and perfect fingers!
+- https://everart.ai - Plans from $50/month for 500 images, Flux.1 Pro available, Video generation, restyling, and editing, Great for illustrations!
+- https://glif.app - Super fun platform with many community models (glifs), Build AI art generators with Flux Pro, Dev, and Schnell for free, No-code sandbox for endless possibilities, 200 free runs per day
 
 
 
