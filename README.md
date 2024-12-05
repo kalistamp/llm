@@ -32,7 +32,7 @@
 
 
 
-- https://seaartai.com - Free Flux (Speed-Enhanced) generations with daily credits (Stamina), Text-to-image & Image-to-image, Fun transformations like turning your pfp into a zombie!
+- https://www.seaart.ai/ - Free Flux (Speed-Enhanced) generations with daily credits (Stamina), Text-to-image & Image-to-image, Fun transformations like turning your pfp into a zombie!
 - https://nightcafe.studio - Flux Dev: 5 free generations, then 3 credits/image, Flux Schnell: 1 credit, Use NC presets with Flux for amazing results!
 - https://fluxpro.ai - Unlimited Flux Schnell use, Flux Dev: 2 credits, Flux Pro: 4 credits, Beautiful results with Schnell!
 - https://easy-peasy.ai - Flux.1 (likely Flux Dev), 2 credits per image, HD option available for stunning results
