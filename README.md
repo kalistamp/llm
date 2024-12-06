@@ -29,7 +29,7 @@
 * https://www.deviantart.com
 * https://www.artstation.com/?sort_by=community&dimension=all
 * https://fluxpro.art/
-
+* https://lumalabs.ai/dream-machine
 
 
 - https://www.seaart.ai/ - Free Flux (Speed-Enhanced) generations with daily credits (Stamina), Text-to-image & Image-to-image, Fun transformations like turning your pfp into a zombie!
