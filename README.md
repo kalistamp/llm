@@ -47,6 +47,30 @@
 ***
 
 
+**OLLAMA LOCAL MODEL INSTALLATION GUIDE**
+
+
+* Install Model on ollama cd into correct directory
+
+```Set-Content -Path "Modelfile" -Value "FROM ./qwen2.5-coder-32b-instruct-q4_k_m-00002-of-00003.gguf" -NoNewline```
+
+
+```ollama create qwen2.5-coder-32b-instruct -f Modelfile```
+
+* Had trouble with Ollama not starting: https://poe.com/s/BEKKyec93cRxihkOXKcm
+
+```solution``` . the model became corrupt, i downloaded a new model after detelting all ollama files and redownloading and it began to work again
+
+
+
+
+
+
+
+***
+***
+
+
 **RED PROMPTS**
 
 ```This guy jailbreaks alot:```
