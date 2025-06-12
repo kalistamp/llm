@@ -19,9 +19,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          # Important: Fetch depth 0 to get all history, especially if submodules have branches
+          # Important: Fetch depth 0 to get all all branches and history, necessary for submodules
           fetch-depth: 0 
-          # Pass GitHub Token to allow pushing changes
+          # Pass GitHub Token to allow pushing changes back to the repository
           token: ${{ secrets.GITHUB_TOKEN }} 
 
       - name: Initialize and Update Submodules
@@ -34,28 +34,28 @@ jobs:
           git submodule update --init --recursive --remote
           echo "Submodules updated to their latest remote HEADs."
 
-      - name: Check for Changes and Commit
+      - name: Configure Git and Check for Changes
         id: commit_check
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
-          # Add all changed files, including updated submodule pointers
-          git add .
+          # Add all potentially changed files, including updated submodule pointers
+          git add . || true
           
-          # Check if there are any pending changes to commit.
-          # git diff --cached --exit-code will exit with 0 if there are no differences, 1 if there are.
+          # Check if there are any pending changes to commit (staged files)
+          # git diff --cached --exit-code will exit with 0 if no differences, 1 if differences.
           if git diff --cached --exit-code; then
             echo "No submodule updates detected. Nothing to commit."
-            echo "changes_committed=false" >> "$GITHUB_OUTPUT" # Corrected output syntax
+            echo "changes_committed=false" >> "$GITHUB_OUTPUT"
           else
-            # If there are changes, commit them
+            echo "Submodule updates detected. Committing changes..."
             git commit -m "Automated: Update LLM submodules to latest"
-            echo "Submodule updates committed."
-            echo "changes_committed=true" >> "$GITHUB_OUTPUT" # Corrected output syntax
+            echo "changes_committed=true" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Push Changes
+        # Only run this step if changes were actually committed
         if: steps.commit_check.outputs.changes_committed == 'true'
         run: |
           git push
