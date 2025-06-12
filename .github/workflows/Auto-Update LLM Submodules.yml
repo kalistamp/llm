@@ -1,0 +1,84 @@
+name: Auto-Update LLM Submodules
+
+on:
+  schedule:
+    # Runs monthly on the 1st day of the month at 00:00 UTC
+    # This corresponds to 5 PM PDT on the last day of the previous month.
+    # Adjust this cron schedule if you prefer a different frequency (e.g., weekly, daily, specific time)
+    - cron: '0 0 1 * *' 
+  workflow_dispatch: # Allows manual triggering from the GitHub Actions tab
+
+permissions:
+  contents: write # Needed to commit and push changes
+
+jobs:
+  update-submodules:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          # Important: Fetch depth 0 to get all history, especially if submodules have branches
+          fetch-depth: 0 
+          # Pass GitHub Token to allow pushing changes
+          token: ${{ secrets.GITHUB_TOKEN }} 
+
+      - name: Initialize and Update Submodules
+        run: |
+          echo "Fetching latest changes for all submodules..."
+          # The --init command initializes submodules that are not yet initialized in the local repository.
+          # The --recursive option updates nested submodules as well.
+          # The --remote option fetches the latest changes from the submodule's remote tracking branch
+          # (usually 'main' or 'master' unless configured otherwise in .gitmodules)
+          git submodule update --init --recursive --remote
+          echo "Submodules updated to their latest remote HEADs."
+
+      - name: Check for Changes and Commit
+        id: commit_check
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Add all changed files, including updated submodule pointers
+          git add .
+          
+          # Check if there are any pending changes to commit.
+          # git diff --cached --exit-code will exit with 0 if there are no differences, 1 if there are.
+          if git diff --cached --exit-code; then
+            echo "No submodule updates detected. Nothing to commit."
+            echo "changes_committed=false" >> $GITHUB_OUTPUT
+          else
+            # If there are changes, commit them
+            git commit -m "Automated: Update LLM submodules to latest"
+            echo "Submodule updates committed."
+            echo "changes_committed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Push Changes
+        if: steps.commit_check.outputs.changes_committed == 'true'
+        run: |
+          git push
+          echo "Submodule updates pushed to remote."
+
+      - name: Notify on Submodule Updates (Optional: create issue)
+        if: steps.commit_check.outputs.changes_committed == 'true'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            // This script will create a new issue to notify you that submodules were updated.
+            // You can modify this to create a PR instead if you prefer, or omit this step entirely.
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: "🤖 LLM Submodules Updated Automatically",
+              body: `
+                Hello,
+
+                This is an automated notification. The LLM repository's submodules have been automatically updated to their latest versions as per the scheduled workflow.
+
+                Please review the recent commits to see the specific submodule updates.
+                `,
+              labels: ["automated", "submodule-update"]
+            });
+            console.log("Notification issue created for submodule update.");
