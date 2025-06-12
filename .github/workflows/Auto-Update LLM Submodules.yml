@@ -10,7 +10,7 @@ on:
 
 permissions:
   contents: write # Needed to commit and push changes
-  issues: write # Needed to create the notification issue (optional)
+  issues: write   # Needed to create the notification issue (optional)
 
 jobs:
   update-submodules:
@@ -19,7 +19,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          # Important: Fetch depth 0 to get all all branches and history, necessary for submodules
+          # Important: Fetch depth 0 to get all branches and history, necessary for submodules
           fetch-depth: 0 
           # Pass GitHub Token to allow pushing changes back to the repository
           token: ${{ secrets.GITHUB_TOKEN }} 
@@ -34,41 +34,54 @@ jobs:
           git submodule update --init --recursive --remote
           echo "Submodules updated to their latest remote HEADs."
 
-      - name: Configure Git and Check for Changes
-        id: commit_check
+      - name: Configure Git and Prepare Commit
+        # This step will prepare the commit if there are changes.
+        # It won't fail the workflow if no changes are detected.
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
           # Add all potentially changed files, including updated submodule pointers
-          git add . || true
+          # The '|| true' ensures this command doesn't fail the step if nothing is added.
+          git add . || true 
           
-          # Check if there are any pending changes to commit (staged files)
-          # git diff --cached --exit-code will exit with 0 if no differences, 1 if differences.
+          # Check if there are any pending changes to commit (staged files).
+          # 'git diff --cached --exit-code' exits with 0 if no differences, 1 if differences.
+          # We'll use this exit code to control the next steps.
           if git diff --cached --exit-code; then
-            echo "No submodule updates detected. Nothing to commit."
-            echo "changes_committed=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::No submodule updates detected. Skipping commit."
+            # Set an output to inform subsequent steps that no changes were made.
+            echo "changes_detected=false" >> "$GITHUB_OUTPUT"
           else
-            echo "Submodule updates detected. Committing changes..."
-            git commit -m "Automated: Update LLM submodules to latest"
-            echo "changes_committed=true" >> "$GITHUB_OUTPUT"
+            echo "::notice::Submodule updates detected. Preparing commit."
+            # Set an output to inform subsequent steps that changes were made.
+            echo "changes_detected=true" >> "$GITHUB_OUTPUT"
+            # Since we're pushing later, we'll just prepare the commit message for the next step.
+            # No actual 'git commit' here, as that happens in the 'Commit Changes' step if needed.
           fi
+        id: prepare_commit # This ID is crucial for referring to its output
+
+      - name: Commit Changes
+        # This step will only run if 'changes_detected' is true from the previous step.
+        if: steps.prepare_commit.outputs.changes_detected == 'true'
+        run: |
+          git commit -m "Automated: Update LLM submodules to latest"
+          echo "Changes committed successfully."
 
       - name: Push Changes
-        # Only run this step if changes were actually committed
-        if: steps.commit_check.outputs.changes_committed == 'true'
+        # This step will only run if the 'Commit Changes' step ran and succeeded.
+        if: steps.commit_changes.outcome == 'success'
         run: |
           git push
           echo "Submodule updates pushed to remote."
 
       - name: Notify on Submodule Updates (Optional: create issue)
-        # Only run this step if changes were actually committed and pushed
-        if: steps.commit_check.outputs.changes_committed == 'true'
+        # This step will only run if changes were committed and pushed successfully.
+        if: steps.push_changes.outcome == 'success' && steps.prepare_commit.outputs.changes_detected == 'true'
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            // This script will create a new issue to notify you that submodules were updated.
             await github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
