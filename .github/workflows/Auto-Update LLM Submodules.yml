@@ -67,6 +67,7 @@ jobs:
         run: |
           git commit -m "Automated: Update LLM submodules to latest"
           echo "Changes committed successfully."
+        id: commit_changes
 
       - name: Push Changes
         # This step will only run if the 'Commit Changes' step ran and succeeded.
@@ -74,8 +75,9 @@ jobs:
         run: |
           git push
           echo "Submodule updates pushed to remote."
+        id: push_changes
 
-      - name: Notify on Submodule Updates (Optional: create issue)
+      - name: Notify on Submodule Updates (Optional create issue)
         # This step will only run if changes were committed and pushed successfully.
         if: steps.push_changes.outcome == 'success' && steps.prepare_commit.outputs.changes_detected == 'true'
         uses: actions/github-script@v7
@@ -86,13 +88,11 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               title: "🤖 LLM Submodules Updated Automatically",
-              body: `
-                Hello,
+              body: `Hello,
 
-                This is an automated notification. The LLM repository's submodules have been automatically updated to their latest versions as per the scheduled workflow.
+            This is an automated notification. The LLM repository's submodules have been automatically updated to their latest versions as per the scheduled workflow.
 
-                Please review the recent commits to see the specific submodule updates.
-                `,
+            Please review the recent commits to see the specific submodule updates.`,
               labels: ["automated", "submodule-update"]
             });
             console.log("Notification issue created for submodule update.");
