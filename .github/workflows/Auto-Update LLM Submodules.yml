@@ -67,19 +67,21 @@ jobs:
         run: |
           git commit -m "Automated: Update LLM submodules to latest"
           echo "Changes committed successfully."
+          echo "commit_success=true" >> "$GITHUB_OUTPUT"
         id: commit_changes
 
       - name: Push Changes
         # This step will only run if the 'Commit Changes' step ran and succeeded.
-        if: steps.commit_changes.outcome == 'success'
+        if: steps.commit_changes.outputs.commit_success == 'true'
         run: |
           git push
           echo "Submodule updates pushed to remote."
+          echo "push_success=true" >> "$GITHUB_OUTPUT"
         id: push_changes
 
       - name: Notify on Submodule Updates (Optional create issue)
-        # This step will only run if changes were committed and pushed successfully.
-        if: steps.push_changes.outcome == 'success' && steps.prepare_commit.outputs.changes_detected == 'true'
+        # This step will only run if changes were actually pushed successfully.
+        if: steps.push_changes.outputs.push_success == 'true'
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
