@@ -50,6 +50,12 @@ List all Docker images installed
 docker image list
 ```
 
+Remove a Docker Image
+
+```
+docker rmi <image_id>
+```
+
 View container logs, To see the output of a running container without attaching to it 
 
 ```
